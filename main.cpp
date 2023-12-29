@@ -1,3 +1,4 @@
+#include <functional>
 #include "http/c_http_request.h"
 #include "http/c_http_response.h"
 #include "http/c_router.h"
@@ -7,6 +8,10 @@
 int main() {
     c_tcp_server server;
     c_router router;
+
+    router.middlewares.emplace_back( []( c_http_request* request ) -> c_http_response* {
+        return new c_http_response(c_http_response::Created);
+    } );
 
     router.routes.insert( std::make_pair( std::make_pair( "/authorize/loader", "POST" ), [&]( const c_http_request* request ) -> c_http_response* {
         std::map<std::string, std::string> headers;

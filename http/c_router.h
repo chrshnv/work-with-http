@@ -9,7 +9,7 @@
 class c_router {
 public:
     std::map< std::pair< std::string, std::string >, std::function< c_http_response*( c_http_request* request ) > > routes;
-    // std::vector< std::shared_ptr< std::function< c_http_request* >( c_http_request* request ) > > middlewares;
+    std::vector< std::function< c_http_response* ( c_http_request* request ) > > middlewares;
 
     c_router() = default;
     std::string listen(c_http_request* request) {
@@ -25,8 +25,16 @@ private:
     static void handle(c_router* router, c_http_request* request, std::promise<std::string>&& p) {
         if ( const auto route = router->routes.find( std::make_pair( request->path, request->method ) ); route == router->routes.end() )
             p.set_value( c_http_response( c_http_response::NOT_FOUND ).to_string() );
-        else
+        else {
+            for (const auto& f: router->middlewares) {
+                if (const auto r = f(request); r != nullptr) {
+                    p.set_value(r->to_string());
+                    return;
+                }
+            }
+
             p.set_value(route->second(request)->to_string());
+        }
     }
 };
 
