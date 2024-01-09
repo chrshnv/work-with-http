@@ -50,7 +50,7 @@ public:
         std::stringstream ss;
         ss << "HTTP/1.1 " << http_status_to_string(this->status_code) << "\r\n";
         ss << "Server: ParsleyTeaServer/1.0.0 (macOS)\r\n";
-        ss << "Connection: keep-alive\r\n";
+        ss << "Connection: close\r\n";
 
         // date
         const auto now = std::chrono::system_clock::now();
