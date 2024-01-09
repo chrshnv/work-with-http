@@ -9,7 +9,7 @@ int main() {
     c_tcp_server server;
     c_router router;
 
-    router.middlewares.emplace_back( []( c_http_request* request ) -> c_http_response* {
+    router.middlewares.emplace_back( []( c_http_request* ) -> c_http_response* {
         return new c_http_response(c_http_response::Created);
     } );
 

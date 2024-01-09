@@ -2,6 +2,7 @@
 #define C_RESPONSE_H
 #include <iomanip>
 #include <string>
+#include <format>
 
 class c_http_response {
 public:
@@ -53,11 +54,10 @@ public:
         ss << "Connection: keep-alive\r\n";
         ss << "Transfer-Encoding: chunked\r\n";
 
-        // data
-        const std::time_t time = std::time(nullptr);
-        const std::tm tm = *std::localtime(&time);
-
-        ss << "Date: " << std::put_time(&tm, "%a, %d %b %Y %H:%M:%S %Z") << "\r\n";
+        // date
+        const auto now = std::chrono::system_clock::now();
+        const auto now_time = std::chrono::system_clock::to_time_t(now);
+        ss << "Date: " << std::put_time( std::localtime( &now_time ), "%a, %d %b %Y %H:%M:%S %Z" ) << "\r\n";
 
         if (!headers.empty()) {
             for (const auto& [name, value]: headers) {
