@@ -20,16 +20,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8339892-95d5-4a76-a8dc-b9c99932fb7e" name="Changes" comment="remove transfer encoding">
+    <list default="true" id="b8339892-95d5-4a76-a8dc-b9c99932fb7e" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/http_server.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/http_server.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/http_server" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/http_server" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/http/c_http_response.h" beforeDir="false" afterPath="$PROJECT_DIR$/http/c_http_response.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http/c_router.h" beforeDir="false" afterPath="$PROJECT_DIR$/http/c_router.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcp/c_tcp_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/tcp/c_tcp_server.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +103,7 @@
       <workItem from="1703775045541" duration="1420000" />
       <workItem from="1703819339518" duration="7528000" />
       <workItem from="1704773712821" duration="11274000" />
-      <workItem from="1704787256071" duration="6378000" />
+      <workItem from="1704787256071" duration="7268000" />
     </task>
     <task id="LOCAL-00001" summary="add middlewares">
       <option name="closed" value="true" />
@@ -167,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704794739743</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fix">
+      <option name="closed" value="true" />
+      <created>1704801687125</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704801687125</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +188,8 @@
     <MESSAGE value="date to std::chrono" />
     <MESSAGE value="remove unused header" />
     <MESSAGE value="remove transfer encoding" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove transfer encoding" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

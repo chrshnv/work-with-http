@@ -10,8 +10,8 @@ public:
     explicit c_tcp_server(): c_socket(-1)
     {
         constexpr int opt = 1;
-        setsockopt(this->sock,SOL_SOCKET,SO_REUSEADDR,&opt,sizeof(int));
-        setsockopt(this->sock,SOL_SOCKET,SO_REUSEPORT,&opt,sizeof(int));
+        setsockopt( this->sock, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof( int ) );
+        setsockopt( this->sock, SOL_SOCKET, SO_REUSEPORT, &opt, sizeof( int ) );
     }
 
     void bind(long port = 8080) {
@@ -37,7 +37,7 @@ private:
         socklen_t client_sock_info_len = sizeof(client_sock_info);
 
         while (true) {
-            const int client_sock = ::accept( server->sock, reinterpret_cast<sockaddr *>( &client_sock_info ), &client_sock_info_len );
+            const int client_sock = ::accept( server->sock, reinterpret_cast<sockaddr*>( &client_sock_info ), &client_sock_info_len );
             if (client_sock == -1)
                 throw std::runtime_error("error when accepting client");
 

@@ -16,7 +16,7 @@ public:
         std::promise<std::string> p;
         auto f = p.get_future();
 
-        std::thread t(handle, this, request, std::move(p));
+        std::thread t( handle, this, request, std::move( p ) );
         t.detach();
 
         return f.get();
@@ -27,13 +27,13 @@ private:
             p.set_value( c_http_response( c_http_response::NOT_FOUND ).to_string() );
         else {
             for (const auto& f: router->middlewares) {
-                if (const auto r = f(request); r != nullptr) {
-                    p.set_value(r->to_string());
+                if ( const auto r = f( request ); r != nullptr ) {
+                    p.set_value( r->to_string() );
                     return;
                 }
             }
 
-            p.set_value(route->second(request)->to_string());
+            p.set_value( route->second( request )->to_string() );
         }
     }
 };
