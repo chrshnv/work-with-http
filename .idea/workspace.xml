@@ -20,9 +20,16 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8339892-95d5-4a76-a8dc-b9c99932fb7e" name="Changes" comment="date to std::chrono">
+    <list default="true" id="b8339892-95d5-4a76-a8dc-b9c99932fb7e" name="Changes" comment="remove unused header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/http_server.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/http_server.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/http_server" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/http_server" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/http/c_http_response.h" beforeDir="false" afterPath="$PROJECT_DIR$/http/c_http_response.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +45,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file:///Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/vector" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/artemijdegtarev/CLionProjects/http-server/main.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///opt/homebrew/opt/llvm/include/c++/v1/__format/format_functions.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///opt/homebrew/opt/llvm/include/c++/v1/format" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -74,11 +82,16 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "CMakeSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="http_server" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="http_server" TARGET_NAME="http_server" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="http_server" RUN_TARGET_NAME="http_server">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -95,7 +108,8 @@
       <updated>1703773962933</updated>
       <workItem from="1703775045541" duration="1420000" />
       <workItem from="1703819339518" duration="7528000" />
-      <workItem from="1704773712821" duration="5058000" />
+      <workItem from="1704773712821" duration="11274000" />
+      <workItem from="1704787256071" duration="3319000" />
     </task>
     <task id="LOCAL-00001" summary="add middlewares">
       <option name="closed" value="true" />
@@ -137,7 +151,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704778189053</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="remove unused header">
+      <option name="closed" value="true" />
+      <created>1704778784453</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704778784453</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +176,11 @@
     <MESSAGE value="add readme.md" />
     <MESSAGE value="update readme(middleware example, model mapping)" />
     <MESSAGE value="date to std::chrono" />
-    <option name="LAST_COMMIT_MESSAGE" value="date to std::chrono" />
+    <MESSAGE value="remove unused header" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unused header" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

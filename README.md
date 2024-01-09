@@ -3,7 +3,6 @@
 "Work with http" is a pet-project written on C++. It's simple http server written using unix sockets and stl features.
 
 * **JSON** support using [nlohmann/json](https://github.com/nlohmann/json)
-* **Transfer-Encoding: chunked**
 * **Connection: keep-alive**
 * **Middlewares**
 
