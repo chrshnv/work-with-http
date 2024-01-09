@@ -15,6 +15,13 @@ c_tcp_server server;
 c_router router;
 ```
 
+* Adding middlewares(override http response, if null, run router function)
+```c++
+router.middlewares.emplace_back( []( c_http_request* request ) -> c_http_response* {
+    return new c_http_response(c_http_response::Created);
+} );
+```
+
 * Inserting route
 ```c++
 router.routes.insert( std::make_pair( std::make_pair( "/authorize/loader", "POST" ), [&]( const c_http_request* request ) -> c_http_response* {
@@ -49,6 +56,9 @@ while (true) {
 
 server.close();
 ```
+
+## Model mapping
+Due to the fact that only JSON is currently supported, serialization is performed using [nlohmann/json "Arbitrary Type Conversions"](https://json.nlohmann.me/features/arbitrary_types/)
 
 ## Used libraries
 * **JSON** support using [nlohmann/json](https://github.com/nlohmann/json)
