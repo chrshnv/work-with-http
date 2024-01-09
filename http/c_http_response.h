@@ -2,7 +2,6 @@
 #define C_RESPONSE_H
 #include <iomanip>
 #include <string>
-#include <format>
 
 class c_http_response {
 public:
@@ -23,7 +22,7 @@ public:
         NOT_FOUND
     };
 
-    static std::string http_status_to_string(e_http_status status) {
+    static std::string http_status_to_string(const e_http_status status) {
         switch (status) {
             case OK: return "200 OK";
             case Created: return "201 Created";
@@ -72,7 +71,7 @@ public:
     }
 private:
     e_http_status status_code = OK;
-    std::string body = "<h1>test</h1>";
+    std::string body;
     std::map<std::string, std::string> headers;
 };
 
