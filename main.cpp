@@ -15,9 +15,7 @@ int main() {
         std::map<std::string, std::string> headers;
         headers.insert( std::make_pair( "Content-Type", "application/json" ) );
 
-        const nlohmann::ordered_json j = ns::c_user("12341test", "tes");
-
-        return new c_http_response(c_http_response::OK, j.dump(), headers);
+        return new c_http_response(c_http_response::OK, request->body, headers);
     } ) );
 
     server.new_connection_event = [&](c_tcp_socket* client) {

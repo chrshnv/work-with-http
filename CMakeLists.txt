@@ -15,4 +15,5 @@ add_executable(http_server main.cpp
         http/c_http_response.h
         utils/json.h
         models/c_user.h
+        utils/string_views_utils.h
 )

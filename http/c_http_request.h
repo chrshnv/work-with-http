@@ -1,46 +1,44 @@
 #ifndef C_HTTP_REQUEST_H
 #define C_HTTP_REQUEST_H
 #include <map>
-#include <sstream>
 #include <string>
 #include <vector>
-#include "../utils/string_utils.h"
+
+#include "../utils/string_views_utils.h"
 
 class c_http_request {
 public:
     explicit c_http_request(const std::string& request_body) {
-        std::istringstream s(request_body);
-        std::string buf;
+        const std::string_view body_view { request_body.c_str(), request_body.length() };
+        auto split_body = tstl::views::split(body_view, "\r");
 
-        while ( std::getline( s, buf ) && buf != "\r" ) {
-            std::string::size_type index;
-            index = buf.find(':', 0);
+        if (split_body.empty())
+            throw std::runtime_error("invalid request");
 
-            if (index != std::string::npos) {
-                this->headers.insert( std::make_pair( trim_copy( buf.substr(0, index) ), trim_copy( buf.substr( index + 1 ) ) ) );
+        const auto http_section = tstl::views::split(split_body.at(0), " ");
+
+        method = http_section.at(0);
+        path = http_section.at(1);
+
+        split_body.erase(split_body.begin());
+        bool headers_end_passed = false;
+
+        for (auto token: split_body ) {
+            if ( token == "\n" )
+                headers_end_passed = true;
+            else if (!headers_end_passed) {
+                token.remove_prefix(1);
+
+                auto header_split = tstl::views::split(token, ": ");
+
+                headers.insert( std::pair( header_split.at(0), header_split.at(1) ) );
             }
-        }
+            else {
+                if (token.starts_with("\n"))
+                    token.remove_prefix(1);
 
-        if ( std::string::size_type index = request_body.find( '\r', 0 ); index != std::string::npos ) {
-            std::string line = request_body.substr(0, index);
-
-            s = std::istringstream(line);
-            std::vector<std::string> arr;
-
-            for ( std::string word; std::getline( s, word, ' ' ); )
-                arr.push_back(word);
-
-            if (!arr.empty() && arr.size() == 3) {
-                this->method = arr.at(0);
-                this->path = arr.at(1);
+                body += token;
             }
-        }
-
-        if ( !headers.contains( "Content-Length" ) )
-            return;
-
-        if ( std::string::size_type index = request_body.find( "\r\n\r\n", 0 ); index != std::string::npos ) {
-            this->body = request_body.substr( index + 4, std::stoi( headers["Content-Length"] ) );
         }
     }
 
