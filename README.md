@@ -5,6 +5,7 @@
 * **JSON** support using [nlohmann/json](https://github.com/nlohmann/json)
 * **Connection: close**
 * **Middlewares**
+* **Unsupported get requests from google chrome**
 
 ## Usage
 

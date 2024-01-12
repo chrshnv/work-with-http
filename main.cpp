@@ -3,7 +3,6 @@
 #include "http/c_http_request.h"
 #include "http/c_http_response.h"
 #include "http/c_router.h"
-#include "models/c_user.h"
 #include "tcp/c_tcp_server.h"
 #include "utils/json.h"
 
@@ -11,7 +10,7 @@ int main() {
     c_tcp_server server;
     c_router router;
 
-    router.routes.insert( std::make_pair( std::make_pair( "/authorize/loader", "POST" ), [&]( const c_http_request* request ) -> c_http_response* {
+    router.routes.insert( std::make_pair( std::make_pair( "/authorize/loader", "GET" ), [&]( const c_http_request* request ) -> c_http_response* {
         std::map<std::string, std::string> headers;
         headers.insert( std::make_pair( "Content-Type", "application/json" ) );
 
